@@ -18,7 +18,7 @@ def estado():
 	if ducha==False:
 		print("No estas duchado")
 	else:
-		print("Estás duchado") 
+		print("Estás duchado.") 
 	if traje==False and chandal==False:
 		print("Estas desnudo")
 	elif traje==True:
