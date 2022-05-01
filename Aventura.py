@@ -1,4 +1,5 @@
 inventario=[]
+agenda={"Juan":"649856987", "Antonio":"641369875"}
 traje=False
 chandal=False
 ducha=False
@@ -8,28 +9,40 @@ oporserviciotecnico=False
 dia=1
 dinero=0
 hora="6:00"
+def agenda():
+	pass
+def gmail():
+	pass
 def linkedin():
 	global oporserviciotecnico
 	print("Estas en Linkedin, entre unas cuantas publicaciones de vendehumos, ves una publicacion de Jose Miguel Garcia Muñiz")
 	print("Este hombre siempre es sinonimo de calidad")
 	print("Puedes MIRAR OFERTAS, MIRAR MENSAJES o SALIR")
 	respuesta = input (">")
-	while respuesta != ("SALIR")
+	while respuesta != ("SALIR"):
 		if respuesta == ("MIRAR OFERTAS"):
 			print("Hay una oferta de helpdesk")
 			print("¿Quieres aplicar a la oferta?")
 			respuesta=("SI/NO>")
-				if respuesta == ("SI")
-					print("Mandas el CV, has hecho esto tantas veces que ya ni te ilusiona")
-				elif respuesta ==("NO")
-					oporserviciotecnico=True
-				else:
-					print("No te entiendo")
+			if respuesta == ("SI"):
+				print("Mandas el CV, has hecho esto tantas veces que ya ni te ilusiona")
+			elif respuesta ==("NO"):
+				oporserviciotecnico=True
+			else:
+				print("No te entiendo")
 		elif respuesta == ("MIRAR MENSAJES"):
-			if dia==(1)
+			if dia==(1):
 				print("No tienes mensajes nuevos")
 			elif dia == (2) and oporserviciotecnico == True:
 				print("Te han contactado de la oferta de helpdesk, te piden que llames al numero 600-195-596")
+				respuesta=("¿Quieres guardar el numero? SI/NO>")
+				if respuesta==("SI"):
+					nombre=input("¿Con que nombre lo quieres guardar?")
+					agenda[nombre]="600195596"
+				elif respuesta==("NO"):
+					print("Ok")
+				else:
+					print("No te entiendo")			
 		else:
 			print("No te entiendo")
 	ordenador()
@@ -46,9 +59,14 @@ def procastinar():
 	else:
 		hora = respuesta
 		print("Ahora son las " + hora)
-
 def movil():
 	print("Puedes mirar la AGENDA, LLAMAR o SALIR")
+	respuesta=input(">")
+	while respuesta != ("SALIR"):
+		if respuesta== ("MIRAR AGENDA"):
+			agenda()
+
+
 def skype():
 	global oporatsistemas
 	global hora
@@ -101,7 +119,7 @@ def ordenador():
 		elif respuesta==("ABRIR LINKEDIN"):
 			linkedin()
 		elif respuesta==("ABRIR GMAIL"):
-			
+			gmail()
 		elif respuesta==("INVENTARIO"):
 			inv()
 		elif respuesta==("ESTADO"):
@@ -323,13 +341,13 @@ def dormitorio():
 			print("Es la tipica mesita de noche, tienes el MOVIL encima")
 		elif respuesta==("MIRAR MOVIL"):
 			print("Es un Xiaomi, lo compraste hace poco, pero ya tiene la pantalla rota, eres un desastre")
-		elif respuesta==("COGER MOVIL"):
+		elif respuesta==("COGER MOVIL") or respuesta==("USAR MOVIL"):
 			if ("MOVIL") in inventario:
 				print("Ya lo tienes")
 			else:
 				print("Coges tu MOVIL, ahora lo encontraras en el INVENTARIO")
+				print("Teclea INVENTARIO, para acceder al inventario")
 				inventario.append("MOVIL")
-			
 		elif respuesta==("MIRAR CASETTE"):
 			print("En la portada hay una ilustracion muy bonita, sobre esta, resalta el nombre del juego, 'La Busqueda' ")
 		elif respuesta==("ABRIR CASETTE"):
@@ -338,6 +356,7 @@ def dormitorio():
 			else:
 				print("Abres el casette y esta vacio, a saber donde está la cinta")
 				print("te quedas con las INSTRUCCIONES, ahora estan en el INVENTARIO")
+				print("Teclea INVENTARIO, para acceder al inventario")
 				inventario.append("INSTRUCCIONES")		
 		elif respuesta==("COGER CASETTE"): 
 			if ("INSTRUCCIONES") in inventario:
@@ -417,7 +436,7 @@ print ("Son las 6:00 de la mañana, ha sido una noche muy calurosa y has sudado 
 print ("El DESPERTADOR no deja de sonar")
 print ("¿Qué quieres hacer?")
 print ("Los comandos han de introducirse EN MAYUSCULAS")
-oficina()
+respuesta=input(">")
 while respuesta!=("SEGUIR DURMIENDO"):
 	if respuesta == ("APAGAR DESPERTADOR"):
 		dormitorio()
